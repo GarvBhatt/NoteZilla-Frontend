@@ -24,7 +24,7 @@ export const formStyle2 = {
   },
 };
 
-export const formStyle1 = {
+export let formStyle1 = {
   display: "flex",
   flexDirection: "column",
   boxShadow: "1px 1px 2px",
@@ -32,7 +32,6 @@ export const formStyle1 = {
   alignSelf: "center",
   margin: "20px auto",
   padding: "20px",
-  width: "35em",
   maxWidth: "35em",
 };
 
@@ -89,7 +88,6 @@ export const formStyle = {
   alignSelf: "center",
   margin: "20px auto",
   padding: "20px",
-  width: "29em",
   maxWidth: "29em",
 };
 

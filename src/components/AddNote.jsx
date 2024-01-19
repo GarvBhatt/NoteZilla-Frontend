@@ -24,6 +24,8 @@ const AddPet = () => {
     setIsFormValid(note.noteTitle && note.stickyNoteContent && note.expectedDate);
   },[note]);
 
+  const Damian = (window.innerWidth < 768)?"unset":"35em";
+
   return (
     <div
       style={formStyle2.a}
@@ -33,7 +35,7 @@ const AddPet = () => {
       >
         Add Your Sticky Note!
       </h2>
-      <Form style={formStyle1} onSubmit={onSubmit}>
+      <Form style={{...formStyle1,width:Damian}} onSubmit={onSubmit}>
         <Form.Group controlId="formNoteTitle" className="mb-3">
           <Form.Label>Note Title</Form.Label>
           <Form.Control

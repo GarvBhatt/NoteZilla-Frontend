@@ -34,8 +34,11 @@ const Login = ()=> {
     setIsFormValid(input.email && input.password);
   },[input]);
 
+  const Damian = (window.innerWidth < 768)?"unset":"61rem";
+  const Wayne = (window.innerWidth < 768)?"unset":"31rem";
+
 return (
-    <MDBContainer className="my-5" style={{height:"31rem",width:"61rem"}}>
+    <MDBContainer className="my-5" style={{height:Wayne,width:Damian}}>
 
       <MDBCard>
         <MDBRow className='g-0'>
