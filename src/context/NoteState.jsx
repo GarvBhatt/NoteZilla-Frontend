@@ -41,7 +41,10 @@ const NoteState = (props) => {
         body: JSON.stringify({email,password})
       });
       
+      console.log("Response Status:", response.status);
       const data = await response.json();
+      console.log("Server Response:", data);
+
       if (!response.ok) {
         if(Array.isArray(data.error))
         {
@@ -53,8 +56,11 @@ const NoteState = (props) => {
         }
         return false;
       }
-      await localStorage.setItem("jwtToken",data.jwtToken);
-      setTheAlert({theAlert:"User is Successfully Logged in",theVariant:"success"});
+      try {
+        await localStorage.setItem("jwtToken", data.jwtToken);
+      } catch (error) {
+        console.error("Error storing jwtToken in localStorage:", error);
+      }      setTheAlert({theAlert:"User is Successfully Logged in",theVariant:"success"});
       return true;
   }
   
