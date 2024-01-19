@@ -67,7 +67,7 @@ const Header = (props) => {
                     About
                   </Link>
                   {!localStorage.getItem("jwtToken") && <><Link
-                    className={(location.pathname==="/login")?"btn btn-dark text-decoration-underline ms-3":"btn btn-dark ms-3"}
+                    className={(location.pathname==="/login")?"btn btn-dark text-decoration-underline ms-2 mb-1":"btn btn-dark ms-2 mb-1"}
                     to="/login"
                     style={{color:"white"}}
                     onClick={Navigate("/login")}
@@ -75,7 +75,7 @@ const Header = (props) => {
                     Login
                   </Link>
                   <Link
-                    className={(location.pathname==="/register")?"btn btn-dark text-decoration-underline ms-2":"btn btn-dark ms-2"}
+                    className={(location.pathname==="/register")?"btn btn-dark text-decoration-underline ms-2 mb-1":"btn btn-dark ms-2 mb-1"}
                     to="/register"
                     style={{color:"white"}}
                     onClick={Navigate("/register")}
