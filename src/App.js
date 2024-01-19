@@ -18,7 +18,7 @@ function App() {
         <TheAlertCompnent/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/about" element={<About/>}/>
+          <Route path="https://notezilla.onrender.com/about" element={<About/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
         </Routes>
