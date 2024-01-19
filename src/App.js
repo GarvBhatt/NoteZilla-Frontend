@@ -17,10 +17,10 @@ function App() {
         <Header title={" NoteZilla"}/>
         <TheAlertCompnent/>
         <Routes>
-          <Route path="" element={<Home/>} to="https://notezilla.onrender.com/" />
-          <Route path="about" element={<About />} to="https://notezilla.onrender.com/about" />
-          <Route path="login" element={<Login/>} to="https://notezilla.onrender.com/login" />
-          <Route path="register" element={<Register/>} to="https://notezilla.onrender.com/register" />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
         <Footer/>
       </Router>
