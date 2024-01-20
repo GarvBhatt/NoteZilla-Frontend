@@ -3,6 +3,39 @@ import NoteContext from "./NoteContext";
 
 const NoteState = (props) => {
   const server = process.env.REACT_APP_SERVER;
+  
+  const tokenChecker = async ()=>
+  {
+    try
+    {
+      if(!localStorage.getItem("jwtToken"))
+      {
+        return false;
+      }
+      
+      const response = await fetch(`${server}api/auth/tokenChecker`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({jwtToken:localStorage.getItem("jwtToken")})
+      });
+      
+      const data = await response.json();
+
+      if(data.error)
+      {
+        setTheAlert({theAlert:data.error,theVariant:"danger"});
+        return false;
+      }
+
+      return true;
+    }
+    catch (error)
+    {
+      console.error(error);
+    }
+  }
 
   const onClickRegister = async (fname,lname,email,password,confirmPassword)=>
   {
@@ -198,7 +231,7 @@ const NoteState = (props) => {
   }, [TheAlert.theAlert]);
 
   return (
-    <NoteContext.Provider value={{ notes, fetchAllNotes, addNote, deleteNote, updateNote, onClickLogin, onClickRegister, TheAlert, setTheAlert}}>
+    <NoteContext.Provider value={{ notes, fetchAllNotes, addNote, deleteNote, updateNote, onClickLogin, onClickRegister, TheAlert, setTheAlert, tokenChecker}}>
       {props.children}
     </NoteContext.Provider>
   );

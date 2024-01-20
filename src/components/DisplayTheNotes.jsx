@@ -7,19 +7,31 @@ import { stickyNoteListStyle } from './NoteStyle'
 const StickyNoteInfo = () => {
   const Navigate = useNavigate(); 
 
-  const { notes, fetchAllNotes } = useContext(NoteContext);
+  const { notes, fetchAllNotes, tokenChecker } = useContext(NoteContext);
 
   useEffect(() => {
-    if(localStorage.getItem("jwtToken"))
+    const fetchData = async () =>
     {
-      fetchAllNotes();
-    }
-    else
-    {
-      Navigate("/login");
-    }
+      try
+      {
+        if (await tokenChecker())
+        {
+          fetchAllNotes();
+        }
+        else
+        {
+          Navigate("/login");
+        }
+      }
+      catch (error)
+      {
+        console.error(error);
+      }
+    };
+
+  fetchData();
     // eslint-disable-next-line
-  }, [Navigate]);
+  }, [Navigate,window.location.pathname]);
 
   return (
     <div>
